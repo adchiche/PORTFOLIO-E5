@@ -111,10 +111,10 @@ function App() {
             data-visible={mobileMenuOpen}
             onClick={closeMobileMenu}
           >
-            <a href="/" className="nav-link active">Accueil</a>
-            <a href="/allperf.html" className="nav-link">Stage Allperf</a>
-            <a href="/elit-technologie.html" className="nav-link">Stage ElitTechnologie</a>
-            <a href="/immo-sync.html" className="nav-link">ImmoSync</a>
+            <a href={import.meta.env.BASE_URL} className="nav-link active">Accueil</a>
+            <a href={`${import.meta.env.BASE_URL}allperf.html`} className="nav-link">Stage Allperf</a>
+            <a href={`${import.meta.env.BASE_URL}elit-technologie.html`} className="nav-link">Stage ElitTechnologie</a>
+            <a href={`${import.meta.env.BASE_URL}immo-sync.html`} className="nav-link">ImmoSync</a>
 
           </div>
         </div>
@@ -276,7 +276,7 @@ function App() {
         <h2 className="bts-title">STAGES</h2>
         <div className="projects-grid">
           {/* Stage Allperf */}
-          <a href="/allperf.html" id="allperf-project" className="project-card project-link" aria-label="Ouvrir la page Allperf">
+          <a href={`${import.meta.env.BASE_URL}allperf.html`} id="allperf-project" className="project-card project-link" aria-label="Ouvrir la page Allperf">
             <div className="project-image">
               <img
                 src={allperf}
@@ -291,7 +291,7 @@ function App() {
           </a>
 
           {/* Stage ElitTechnologie */}
-          <a href="/elit-technologie.html" id="elittechnologie-project" className="project-card project-link" aria-label="Ouvrir la page ElitTechnologie">
+          <a href={`${import.meta.env.BASE_URL}elit-technologie.html`} id="elittechnologie-project" className="project-card project-link" aria-label="Ouvrir la page ElitTechnologie">
             <div className="project-image">
               <img
                 src={elitTechnologie}
@@ -307,7 +307,7 @@ function App() {
 
           <h2 className="bts-title">PROJETS</h2>
           {/* Stage ImmoSync */}
-          <a href="/immo-sync.html" id="immosync-project" className="project-card project-link" aria-label="Ouvrir la page ImmoSync">
+          <a href={`${import.meta.env.BASE_URL}immo-sync.html`} id="immosync-project" className="project-card project-link" aria-label="Ouvrir la page ImmoSync">
             <div className="project-image">
               <img
                 src={immoSync}
