@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AllPerf Business Intelligence — Présentation de l'entreprise</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1e293b;
+      --muted: #334155;
+      --accent: #2563eb;
+      --section-accent: #0d70a7;
+      --accent-hover: #1d4ed8;
+      --card-bg: #f8fafc;
+      --border: rgba(16, 24, 40, 0.06);
+      --shadow: 0 10px 22px rgba(16, 24, 40, 0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      transition: all 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-hover);
+      transform: translateX(-4px);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      letter-spacing: 0.5px;
+      margin: 0 0 1.5rem;
+      color: var(--section-accent);
+      font-weight: 900;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      letter-spacing: 0.5px;
+      margin: 2.5rem 0 1.5rem;
+      color: var(--section-accent);
+      font-weight: 900;
+    }
+
+    .section-content {
+      text-align: center;
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      font-size: 1.15rem;
+      color: var(--muted);
+      line-height: 1.7;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* ── IDENTIFICATION TABLE ── */
+    .info-table {
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .info-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      font-size: 1.1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-table tr:last-child th,
+    .info-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .info-table th {
+      width: 35%;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--card-bg);
+    }
+
+    .info-table td {
+      color: var(--muted);
+    }
+
+    /* ── CONTENT CARDS ── */
+    .content-card {
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      text-align: left;
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .content-card p {
+      margin-bottom: 1rem;
+    }
+
+    .content-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .content-card li {
+      margin-bottom: 1rem;
+      padding-left: 1.6rem;
+      position: relative;
+    }
+
+    .content-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--section-accent);
+      font-weight: bold;
+    }
+
+    .content-card strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── SWOT GRID ── */
+    .swot-grid {
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .swot-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .swot-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .swot-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .swot-card li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.4rem;
+      position: relative;
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .swot-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    .swot-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .swot-forces h3 {
+      color: #16a34a;
+    }
+
+    .swot-forces li::before {
+      color: #16a34a;
+    }
+
+    .swot-faiblesses h3 {
+      color: #dc2626;
+    }
+
+    .swot-faiblesses li::before {
+      color: #dc2626;
+    }
+
+    .swot-opportunites h3 {
+      color: #2563eb;
+    }
+
+    .swot-opportunites li::before {
+      color: #2563eb;
+    }
+
+    .swot-menaces h3 {
+      color: #ea580c;
+    }
+
+    .swot-menaces li::before {
+      color: #ea580c;
+    }
+
+    /* ── SEPARATOR ── */
+    .section-separator {
+      max-width: 200px;
+      margin: 3rem auto;
+      border: none;
+      border-top: 2px solid var(--border);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(16, 24, 40, 0.1);
+      text-align: center;
+    }
+
+    .site-footer p {
+      margin: 0.6rem 0;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .site-footer a {
+      color: var(--section-accent);
+      text-decoration: underline dotted;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .site-footer a:hover {
+      color: var(--accent);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .info-table th,
+      .info-table td {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+      }
+
+      .info-table th {
+        width: 40%;
+      }
+
+      .content-card {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .swot-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a href="javascript:history.back()" class="back-link">
+      <span>←</span>
+      <span>Retour au portfolio</span>
+    </a>
+
+    <section class="section">
+
+      <!-- ═══════════════ TITRE PRINCIPAL ═══════════════ -->
+      <h1 class="section-title">PRÉSENTATION DE L'ENTREPRISE</h1>
+      <div class="section-content">
+        <p>
+          Entreprise spécialisée dans la dématérialisation et l'automatisation des processus métiers, où j'ai effectué mes deux stages de BTS SIO SLAM.
+        </p>
+      </div>
+
+      <!-- ═══════════════ IDENTIFICATION ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">IDENTIFICATION</h2>
+
+      <div class="info-table">
+        <table>
+          <tr>
+            <th>Dénomination</th>
+            <td>AllPerf Business Intelligence</td>
+          </tr>
+          <tr>
+            <th>Adresse</th>
+            <td>11-13 Rue du Général de Larminat, 94000 Créteil</td>
+          </tr>
+          <tr>
+            <th>Forme juridique</th>
+            <td>SARL (Société à Responsabilité Limitée)</td>
+          </tr>
+          <tr>
+            <th>Date de création</th>
+            <td>2 juillet 2008</td>
+          </tr>
+          <tr>
+            <th>Taille</th>
+            <td>TPE/PME — Équipe restreinte et polyvalente</td>
+          </tr>
+          <tr>
+            <th>Secteur d'activité</th>
+            <td>Dématérialisation & Business Intelligence — Éditeur de solutions logicielles dédiées à l'informatisation et à l'automatisation des processus industriels et métiers</td>
+          </tr>
+          <tr>
+            <th>Site web</th>
+            <td>allperf.fr</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- ═══════════════ HISTORIQUE ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">HISTORIQUE</h2>
+
+      <div class="content-card">
+        <p>
+          <strong>Fondée le 2 juillet 2008</strong>, AllPerf BI s'est positionnée dès ses débuts comme un acteur spécialisé dans la dématérialisation conforme aux <strong>directives européennes</strong> et aux recommandations de la DGI.
+        </p>
+        <p>
+          En plus de <strong>15 ans d'existence</strong>, l'entreprise a développé une expertise reconnue en hébergement de solutions de dématérialisation et en conception de briques logicielles d'automatisation.
+        </p>
+        <p>
+          Membre de la <strong>FNTC</strong> (Fédération Nationale des Tiers de Confiance) et partenaire <strong>GS1</strong>, AllPerf propose des solutions de signature électronique, gestion de certificats et horodatage (PDF, XML, DOCX).
+        </p>
+      </div>
+
+      <!-- ═══════════════ RGPD ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">RGPD — PROTECTION DES DONNÉES</h2>
+
+      <div class="content-card">
+        <p>
+          En tant qu'éditeur de solutions de dématérialisation, AllPerf BI est directement concernée par le <strong>RGPD</strong>. L'entreprise traite des documents sensibles (factures, contrats, certificats) et doit garantir la <strong>confidentialité</strong>, l'<strong>intégrité</strong> et la <strong>disponibilité</strong> des données de ses clients.
+        </p>
+        <p>
+          Les mesures mises en place incluent :
+        </p>
+        <ul>
+          <li>
+            <strong>Hébergement des données en France</strong> — Garantit la conformité avec les régulations européennes.
+          </li>
+          <li>
+            <strong>Chiffrement des échanges</strong> — Assure la sécurité des communications et des transferts de données.
+          </li>
+          <li>
+            <strong>Gestion rigoureuse des droits d'accès</strong> — Contrôle strict des permissions utilisateurs.
+          </li>
+          <li>
+            <strong>Conformité eIDAS</strong> — Standards de signature électronique et d'horodatage qualifié.
+          </li>
+        </ul>
+      </div>
+
+      <!-- ═══════════════ ORIENTATIONS STRATÉGIQUES ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">ORIENTATIONS STRATÉGIQUES</h2>
+
+      <div class="content-card">
+        <p>
+          La stratégie d'AllPerf repose sur le développement de <strong>solutions sur mesure</strong> à déploiement rapide, garantissant un retour sur investissement immédiat. L'entreprise se différencie par sa capacité à adapter ses outils aux <strong>spécificités métier</strong> de chaque client.
+        </p>
+        <p>
+          Les axes de croissance principaux :
+        </p>
+        <ul>
+          <li>
+            <strong>Solutions sur mesure</strong> — Développement d'outils personnalisés et adaptables.
+          </li>
+          <li>
+            <strong>Intégration de technologies modernes</strong> — API, Cloud, SaaS pour une meilleure interopérabilité.
+          </li>
+          <li>
+            <strong>Renforcement de la conformité réglementaire</strong> — Adaptation continue aux évolutions législatives.
+          </li>
+          <li>
+            <strong>Proximité avec les clients</strong> — Structure à taille humaine favorisant la réactivité et la communication fluide.
+          </li>
+        </ul>
+      </div>
+
+      <!-- ═══════════════ RSE ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">RSE — RESPONSABILITÉ SOCIÉTALE</h2>
+
+      <div class="content-card">
+        <p>AllPerf s'inscrit dans une démarche <strong>RSE</strong> en proposant des solutions qui réduisent l'impact environnemental de la gestion documentaire. La dématérialisation des factures, contrats et courriers contribue directement à la <strong>réduction de papier</strong>.</p>
+        <p>Les engagements RSE de l'entreprise :</p>
+        <ul>
+          <li>
+            <strong>Éco-responsable</strong> — Réduction de la consommation de papier et de l'empreinte carbone liée au stockage documentaire.
+          </li>
+          <li>
+            <strong>Télétravail</strong> — Favorise le travail à distance pour limiter les déplacements et réduire l'impact environnemental.
+          </li>
+          <li>
+            <strong>Accueil de stagiaires BTS/Licence</strong> — Contribution à la formation des futurs professionnels du numérique.
+          </li>
+          <li>
+            <strong>Technologies ouvertes</strong> — Utilisation de technologies ouvertes pour limiter la dépendance aux éditeurs propriétaires.
+          </li>
+          <li>
+            <strong>Datacenters en France</strong> — Hébergement des serveurs en France pour atténuer la consommation énergétique.
+          </li>
+        </ul>
+      </div>
+
+      <!-- ═══════════════ SWOT ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">ANALYSE SWOT</h2>
+
+      <div class="swot-grid">
+        <div class="swot-card swot-forces">
+          <h3>💪 Forces</h3>
+          <ul>
+            <li>Expertise de plus de 15 ans en dématérialisation.</li>
+            <li>Solutions sur mesure adaptées aux besoins clients.</li>
+            <li>Équipe technique expérimentée et polyvalente.</li>
+            <li>Bonne connaissance des réglementations européennes.</li>
+          </ul>
+        </div>
+
+        <div class="swot-card swot-faiblesses">
+          <h3>⚠️ Faiblesses</h3>
+          <ul>
+            <li>Taille réduite de l'équipe de développement.</li>
+            <li>Code legacy nécessitant une modernisation progressive.</li>
+            <li>Documentation technique à renforcer.</li>
+            <li>Dépendance à certaines technologies propriétaires.</li>
+          </ul>
+        </div>
+
+        <div class="swot-card swot-opportunites">
+          <h3>🚀 Opportunités</h3>
+          <ul>
+            <li>Croissance du marché de la dématérialisation.</li>
+            <li>Nouvelles directives européennes favorisant le numérique.</li>
+            <li>Demande croissante d'automatisation des processus.</li>
+            <li>Intégration d'outils modernes (API, Cloud, SaaS).</li>
+          </ul>
+        </div>
+
+        <div class="swot-card swot-menaces">
+          <h3>🔥 Menaces</h3>
+          <ul>
+            <li>Concurrence accrue de grandes plateformes SaaS.</li>
+            <li>Évolution rapide des technologies et frameworks.</li>
+            <li>Risques liés à la cybersécurité et aux données.</li>
+            <li>Pénurie de talents dans le secteur tech.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <p>Me contacter sur l'adresse mail : <a href="https://mail.google.com/mail/?view=cm&fs=1&to=adamchichepro@gmail.com"
+        target="_blank" rel="noopener noreferrer">adamchichepro@gmail.com</a></p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elit-Technologies — Présentation de l'entreprise</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1e293b;
+      --muted: #334155;
+      --accent: #2563eb;
+      --section-accent: #0d70a7;
+      --accent-hover: #1d4ed8;
+      --card-bg: #f8fafc;
+      --border: rgba(16, 24, 40, 0.06);
+      --shadow: 0 10px 22px rgba(16, 24, 40, 0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      transition: all 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-hover);
+      transform: translateX(-4px);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      letter-spacing: 0.5px;
+      margin: 0 0 1.5rem;
+      color: var(--section-accent);
+      font-weight: 900;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      letter-spacing: 0.5px;
+      margin: 2.5rem 0 1.5rem;
+      color: var(--section-accent);
+      font-weight: 900;
+    }
+
+    .section-content {
+      text-align: center;
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      font-size: 1.15rem;
+      color: var(--muted);
+      line-height: 1.7;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* ── IDENTIFICATION TABLE ── */
+    .info-table {
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .info-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      font-size: 1.1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-table tr:last-child th,
+    .info-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .info-table th {
+      width: 35%;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--card-bg);
+    }
+
+    .info-table td {
+      color: var(--muted);
+    }
+
+    /* ── CONTENT CARDS ── */
+    .content-card {
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      text-align: left;
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .content-card p {
+      margin-bottom: 1rem;
+    }
+
+    .content-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .content-card li {
+      margin-bottom: 1rem;
+      padding-left: 1.6rem;
+      position: relative;
+    }
+
+    .content-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--section-accent);
+      font-weight: bold;
+    }
+
+    .content-card strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── SWOT GRID ── */
+    .swot-grid {
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .swot-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .swot-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .swot-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .swot-card li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.4rem;
+      position: relative;
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .swot-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    .swot-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .swot-forces h3 {
+      color: #16a34a;
+    }
+
+    .swot-forces li::before {
+      color: #16a34a;
+    }
+
+    .swot-faiblesses h3 {
+      color: #dc2626;
+    }
+
+    .swot-faiblesses li::before {
+      color: #dc2626;
+    }
+
+    .swot-opportunites h3 {
+      color: #2563eb;
+    }
+
+    .swot-opportunites li::before {
+      color: #2563eb;
+    }
+
+    .swot-menaces h3 {
+      color: #ea580c;
+    }
+
+    .swot-menaces li::before {
+      color: #ea580c;
+    }
+
+    /* ── PROJECT SCREENSHOTS ── */
+    .project-screenshots {
+      max-width: 980px;
+      margin: 1.5rem auto 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .screenshot-item {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .screenshot-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(16, 24, 40, 0.12);
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .screenshot-caption {
+      padding: 1rem 1.2rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .project-screenshots {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      font-size: 2.5rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10000;
+      font-weight: 300;
+      line-height: 1;
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-close:hover {
+      opacity: 0.7;
+    }
+
+    /* ── GALLERY ── */
+    .gallery-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .gallery-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .gallery-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .gallery-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+      gap: 1rem;
+    }
+
+    .gallery-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .gallery-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .gallery-btn:active {
+      transform: translateY(0);
+    }
+
+    .gallery-btn:disabled {
+      background: #cbd5e1;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .gallery-counter {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── SEPARATOR ── */
+    .section-separator {
+      max-width: 200px;
+      margin: 3rem auto;
+      border: none;
+      border-top: 2px solid var(--border);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(16, 24, 40, 0.1);
+      text-align: center;
+    }
+
+    .site-footer p {
+      margin: 0.6rem 0;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .site-footer a {
+      color: var(--section-accent);
+      text-decoration: underline dotted;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .site-footer a:hover {
+      color: var(--accent);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .info-table th,
+      .info-table td {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+      }
+
+      .info-table th {
+        width: 40%;
+      }
+
+      .content-card {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .swot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-image-wrapper {
+        height: 300px;
+      }
+
+      .gallery-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .gallery-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a href="javascript:history.back()" class="back-link">
+      <span>←</span>
+      <span>Retour au portfolio</span>
+    </a>
+
+    <section class="section">
+
+      <!-- ═══════════════ TITRE PRINCIPAL ═══════════════ -->
+      <h1 class="section-title">PRÉSENTATION DE L'ENTREPRISE</h1>
+      <div class="section-content">
+        <p>
+          Elit-Technologies est une ESN (Entreprise de Services du Numérique) bénéficiant de plus de 18 ans
+          d'ancienneté,
+          spécialisée dans l'IT, la cybersécurité, les réseaux, la téléphonie IP et les services managés.
+        </p>
+      </div>
+
+      <!-- ═══════════════ IDENTIFICATION ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">IDENTIFICATION</h2>
+
+      <div class="info-table">
+        <table>
+          <tr>
+            <th>Dénomination</th>
+            <td>Elit-Technologies</td>
+          </tr>
+          <tr>
+            <th>Adresse</th>
+            <td>14 Rue du Sergent Bobillot, 92400 Courbevoie — La Défense, France</td>
+          </tr>
+          <tr>
+            <th>Forme juridique</th>
+            <td>Société par Actions Simplifiée (SAS)</td>
+          </tr>
+          <tr>
+            <th>Taille</th>
+            <td>PME</td>
+          </tr>
+          <tr>
+            <th>Effectif</th>
+            <td>Plus de 60 collaborateurs</td>
+          </tr>
+          <tr>
+            <th>Secteur d'activité</th>
+            <td>ESN — IT, Cybersécurité, Réseaux, Téléphonie IP/TOIP, Support informatique, Services managés</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- ═══════════════ HISTORIQUE ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">HISTORIQUE</h2>
+
+      <div class="content-card">
+        <p>
+          <strong>Date de création :</strong> 2 juillet 2007.
+        </p>
+        <p>
+          L'entreprise a été créée pour accompagner les organisations dans leur transformation digitale
+          et la gestion de leurs infrastructures IT.
+        </p>
+        <p>
+          Depuis sa création, Elit-Technologies a progressivement étendu ses activités,
+          notamment en cybersécurité et en services managés, devenant aujourd'hui une ESN complète
+          reconnue pour son expertise multi-domaines.
+        </p>
+      </div>
+
+      <!-- ═══════════════ RGPD ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">RGPD — PROTECTION DES DONNÉES</h2>
+
+      <div class="content-card">
+        <p>
+          Sur le site de l'entreprise, il existe une <strong>politique de confidentialité</strong> et des
+          <strong>mentions légales</strong> conformes à la réglementation française et européenne.
+        </p>
+      </div>
+
+      <!-- ═══════════════ ORIENTATIONS STRATÉGIQUES ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">ORIENTATIONS STRATÉGIQUES</h2>
+
+      <div class="content-card">
+        <ul>
+          <li>
+            <strong>Cybersécurité :</strong> Renforcement de la protection des systèmes d'information
+            avec des solutions SOC (Security Operations Center) et NOC (Network Operations Center).
+          </li>
+          <li>
+            <strong>Réseaux :</strong> Développement de solutions réseau complètes — switching, routage,
+            firewall, Wi-Fi, SD-WAN, SASE.
+          </li>
+          <li>
+            <strong>Téléphonie IP (ToIP) :</strong> Offres modernes et intégrées
+            au système d'information.
+          </li>
+          <li>
+            <strong>Digital Workplace :</strong> Soutien au travail collaboratif et à la visioconférence
+            — solutions cloud, Microsoft 365, outils de productivité.
+          </li>
+          <li>
+            <strong>Services managés :</strong> Support proactif 24/7 avec un objectif d'accompagnement
+            complet du SI des clients.
+          </li>
+        </ul>
+      </div>
+
+      <!-- ═══════════════ RSE ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">RSE — RESPONSABILITÉ SOCIÉTALE</h2>
+
+      <div class="content-card">
+        <p>Elit-Technologies mentionne des engagements autour de trois axes principaux :</p>
+        <ul>
+          <li>
+            <strong>Environnement :</strong> Réduction de l'impact environnemental via des solutions
+            responsables et des partenariats vertueux.
+          </li>
+          <li>
+            <strong>Bien-être des employés :</strong> Promotion d'un environnement de travail inclusif
+            et favorable.
+          </li>
+          <li>
+            <strong>Technologies responsables :</strong> Intégration d'outils numériques éthiques
+            et sécurité des données.
+          </li>
+        </ul>
+      </div>
+
+      <!-- ═══════════════ SWOT ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">ANALYSE SWOT</h2>
+
+      <div class="swot-grid">
+        <div class="swot-card swot-forces">
+          <h3>💪 Forces</h3>
+          <ul>
+            <li>Expertise complète IT : cybersécurité, réseau, cloud, téléphonie IP, digital workplace.</li>
+            <li>Positionnement ESN avec services managés et SOC/NOC.</li>
+            <li>Partenariats technologiques solides (Cisco, Microsoft, AWS, etc.).</li>
+          </ul>
+        </div>
+
+        <div class="swot-card swot-faiblesses">
+          <h3>⚠️ Faiblesses</h3>
+          <ul>
+            <li>Taille moyenne (~60+ employés), ressources limitées face à de très grandes ESN.</li>
+            <li>Peu de données publiques sur la RSE détaillée ou la conformité RGPD formalisée.</li>
+          </ul>
+        </div>
+
+        <div class="swot-card swot-opportunites">
+          <h3>🚀 Opportunités</h3>
+          <ul>
+            <li>Croissance de la cybersécurité et de la demande de services managés.</li>
+            <li>Adoption accrue du travail hybride et des solutions collaboratives (visioconférence, cloud).</li>
+          </ul>
+        </div>
+
+        <div class="swot-card swot-menaces">
+          <h3>🔥 Menaces</h3>
+          <ul>
+            <li>Concurrence forte dans le secteur des ESN et des intégrateurs IT (grands groupes internationaux).</li>
+            <li>Évolution constante des cybermenaces nécessitant une adaptation permanente.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ═══════════════ PROJET RÉALISÉ ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">PROJET RÉALISÉ EN STAGE</h2>
+
+      <div class="content-card">
+        <p>
+          Durant mon stage chez Elit-Technologies, j'ai conçu et développé un <strong>script Python</strong>
+          permettant de récupérer en temps réel les dernières <strong>CVE critiques</strong> (Common Vulnerabilities and
+          Exposures)
+          publiées en ligne, puis de les diffuser automatiquement dans une <strong>room Webex</strong> dédiée à
+          l'équipe.
+        </p>
+      </div>
+
+      <!-- ── OBJECTIFS ── -->
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">🎯 Objectifs</h3>
+      <div class="content-card">
+        <ul>
+          <li>
+            <strong>Améliorer la réactivité</strong> de l'équipe face aux vulnérabilités critiques
+            affectant les systèmes des clients.
+          </li>
+          <li>
+            <strong>Centraliser les alertes CVE</strong> dans un canal de communication unique (Webex)
+            pour une meilleure gestion interne.
+          </li>
+          <li>
+            <strong>Automatiser la veille sécurité</strong> en remplaçant une vérification manuelle
+            par un processus automatisé et fiable.
+          </li>
+        </ul>
+      </div>
+
+      <!-- ── MOYENS UTILISÉS ── -->
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">🛠️ Moyens utilisés</h3>
+      <div class="content-card">
+        <ul>
+          <li>
+            <strong>Python</strong> — Langage utilisé pour le développement du script console.
+          </li>
+          <li>
+            <strong>API Auvik / NVD (NIST)</strong> — Récupération des CVE critiques publiées en temps réel
+            via des appels API.
+          </li>
+          <li>
+            <strong>API Webex</strong> — Envoi automatique des alertes formatées dans une room Webex dédiée.
+          </li>
+        </ul>
+      </div>
+
+      <!-- ── DIFFICULTÉS RENCONTRÉES ── -->
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">⚡ Difficultés rencontrées</h3>
+      <div class="content-card">
+        <p>J'ai rencontré plusieurs défis durant ce stage, notamment :</p>
+        <ul>
+          <li>
+            <strong>Compréhension de la documentation API :</strong> La documentation de l'API Auvik étant
+            rédigée en anglais et très technique, j'ai dû consacrer du temps à comprendre la structure des
+            requêtes et le format des réponses JSON renvoyées.
+          </li>
+          <li>
+            <strong>Découverte de l'environnement cybersécurité :</strong> Le vocabulaire et les concepts liés
+            aux CVE, scores CVSS et bases NVD étaient nouveaux pour moi. Il m'a fallu me former rapidement
+            pour bien comprendre les données que je manipulais.
+          </li>
+          <li>
+            <strong>Gestion des erreurs API :</strong> J'ai dû apprendre à gérer les cas où l'API ne répondait
+            pas correctement (timeout, erreurs de connexion, limites de requêtes) afin de rendre le script
+            fiable en production.
+          </li>
+          <li>
+            <strong>Organisation et gestion du temps :</strong> Travailler en autonomie sur un projet complet
+            m'a demandé de mieux structurer mon travail, de prioriser les tâches et de respecter les délais
+            fixés par mon tuteur.
+          </li>
+        </ul>
+        <p style="margin-top: 1rem;"> 
+          Pour surmonter ces difficultés, j'ai sollicité l'aide de mes collègues, consulté régulièrement la
+          documentation officielle et utilisé l'intelligence artificielle comme outil d'amélioration continue
+          de mon projet — que ce soit pour clarifier des concepts techniques, optimiser la structure de mon code
+          ou identifier des bonnes pratiques que je n'aurais pas trouvées seul aussi rapidement.
+        </p>
+      </div>
+
+      <!-- ── RÉSULTATS OBTENUS ── -->
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">✅ Résultats obtenus</h3>
+      <div class="content-card">
+        <ul>
+          <li>
+            Le script envoie automatiquement dans la room Webex les CVE critiques avec leur
+            <strong>identifiant</strong>, le <strong>vendeur concerné</strong>, la <strong>description</strong>,
+            le <strong>score CVSS</strong>, la <strong>sévérité</strong> et un <strong>lien vers le NVD</strong>.
+          </li>
+          <li>
+            L'équipe dispose désormais d'un <strong>flux d'alertes centralisé</strong>, permettant une prise
+            en charge plus rapide des vulnérabilités affectant les clients.
+          </li>
+          <li>
+            Le processus de veille sécurité est passé d'un contrôle manuel à une
+            <strong>automatisation complète</strong>.
+          </li>
+        </ul>
+      </div>
+
+      <h4 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem); margin-top: 2rem;">📸 Aperçu visuel des projets</h4>
+      <div class="project-screenshots">
+        <div class="screenshot-item" onclick="openLightbox('../src/Images/webex-cve-room.png')">
+          <img src="../src/Images/webex-cve-room.png" alt="Room Webex avec alertes CVE critiques" />
+          <p class="screenshot-caption">Room Webex — Réception des alertes CVE critiques en temps réel</p>
+        </div>
+        <div class="screenshot-item" onclick="openLightbox('../src/Images/nist-cve.png')">
+          <img src="../src/Images/nist-cve.png" alt="Page NIST NVD — Détail d'une CVE" />
+          <p class="screenshot-caption">NVD (NIST) — Page de détail d'une CVE critique récupérée par le script</p>
+        </div>
+      </div>
+
+      <!-- ═══════════════ CONCLUSION ═══════════════ -->
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">CONCLUSION</h2>
+      <div class="content-card">
+        <p>
+          Ce stage a été une étape importante dans mon parcours. J'ai pu mettre en pratique mes compétences tout en
+          découvrant de nouvelles technologies. J'ai découvert de nombreux aspects de la vie d'un développeur, et
+          remarqué que cela ne se limite pas simplement à du développement, mais bien à de la recherche, de
+          l'organisation, de la communication et enfin de la programmation.
+        </p>
+        <p>
+          Cette expérience m'a également permis de mieux comprendre l'importance de la collaboration et de
+          l'adaptabilité dans un environnement professionnel. Je suis convaincu que les compétences et les leçons
+          apprises durant ce stage me seront précieuses pour mes futures expériences professionnelles.
+        </p>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ── LIGHTBOX MODAL ── -->
+  <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Agrandissement" />
+  </div>
+
+  <footer class="site-footer">
+    <p>Me contacter sur l'adresse mail : <a href="https://mail.google.com/mail/?view=cm&fs=1&to=adamchichepro@gmail.com"
+        target="_blank" rel="noopener noreferrer">adamchichepro@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // ── LIGHTBOX ──
+    function openLightbox(src) {
+      const overlay = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const overlay = document.getElementById('lightbox');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+  <script>
+    const images = [
+      '../src/Images/immo-sync.png',
+      '../src/Images/java.png',
+      '../src/Images/javascript.png',
+      '../src/Images/php.png',
+      '../src/Images/python.png'
+    ];
+
+    let currentIndex = 0;
+
+    const galleryImage = document.getElementById('gallery-image');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const counter = document.getElementById('counter');
+
+    function updateGallery() {
+      galleryImage.src = images[currentIndex];
+      counter.textContent = `${currentIndex + 1} / ${images.length}`;
+
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === images.length - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateGallery();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < images.length - 1) {
+        currentIndex++;
+        updateGallery();
+      }
+    });
+
+    updateGallery();
+  </script>
+</body>
+
+</html>
