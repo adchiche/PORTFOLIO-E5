@@ -1,0 +1,1100 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AllPerf Business Intelligence — Présentation de l'entreprise</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1e293b;
+      --muted: #334155;
+      --accent: #2563eb;
+      --section-accent: #0d70a7;
+      --accent-hover: #1d4ed8;
+      --card-bg: #f8fafc;
+      --border: rgba(16, 24, 40, 0.06);
+      --shadow: 0 10px 22px rgba(16, 24, 40, 0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      transition: all 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-hover);
+      transform: translateX(-4px);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      letter-spacing: 0.5px;
+      margin: 0 0 1.5rem;
+      color: var(--section-accent);
+      font-weight: 900;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      letter-spacing: 0.5px;
+      margin: 2.5rem 0 1.5rem;
+      color: var(--section-accent);
+      font-weight: 900;
+    }
+
+    .section-content {
+      text-align: center;
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      font-size: 1.15rem;
+      color: var(--muted);
+      line-height: 1.7;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* ── IDENTIFICATION TABLE ── */
+    .info-table {
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .info-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      font-size: 1.1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-table tr:last-child th,
+    .info-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .info-table th {
+      width: 35%;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--card-bg);
+    }
+
+    .info-table td {
+      color: var(--muted);
+    }
+
+    /* ── CONTENT CARDS ── */
+    .content-card {
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      text-align: left;
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .content-card p {
+      margin-bottom: 1rem;
+    }
+
+    .content-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .content-card li {
+      margin-bottom: 1rem;
+      padding-left: 1.6rem;
+      position: relative;
+    }
+
+    .content-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--section-accent);
+      font-weight: bold;
+    }
+
+    .content-card strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── SWOT GRID ── */
+    .swot-grid {
+      max-width: 980px;
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .swot-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .swot-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .swot-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .swot-card li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.4rem;
+      position: relative;
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .swot-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    .swot-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .swot-forces h3 {
+      color: #16a34a;
+    }
+
+    .swot-forces li::before {
+      color: #16a34a;
+    }
+
+    .swot-faiblesses h3 {
+      color: #dc2626;
+    }
+
+    .swot-faiblesses li::before {
+      color: #dc2626;
+    }
+
+    .swot-opportunites h3 {
+      color: #2563eb;
+    }
+
+    .swot-opportunites li::before {
+      color: #2563eb;
+    }
+
+    .swot-menaces h3 {
+      color: #ea580c;
+    }
+
+    .swot-menaces li::before {
+      color: #ea580c;
+    }
+
+    /* ── IMAGE GALLERY WITH FILTERS ── */
+    .gallery-container {
+      max-width: 1100px;
+      margin: 2rem auto;
+    }
+
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    .filter-btn {
+      background: #fff;
+      color: var(--text);
+      border: 2px solid var(--border);
+      padding: 0.75rem 1.8rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(16, 24, 40, 0.04);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .gallery-item {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .gallery-item.hidden {
+      display: none;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(16, 24, 40, 0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item-caption {
+      padding: 1rem 1.2rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 500;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Lightbox pour agrandir les images */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-overlay img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      cursor: default;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 3rem;
+      color: white;
+      font-size: 3rem;
+      font-weight: 300;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      z-index: 10001;
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.2);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.8rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      z-index: 10001;
+      user-select: none;
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .lightbox-nav.disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .lightbox-prev {
+      left: 2rem;
+    }
+
+    .lightbox-next {
+      right: 2rem;
+    }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      z-index: 10001;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-filters {
+        gap: 0.5rem;
+      }
+
+      .filter-btn {
+        padding: 0.6rem 1.3rem;
+        font-size: 0.9rem;
+      }
+
+      .gallery-item img {
+        height: 200px;
+      }
+
+      .lightbox-close {
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 2.5rem;
+      }
+
+      .lightbox-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+
+      .lightbox-prev {
+        left: 1rem;
+      }
+
+      .lightbox-next {
+        right: 1rem;
+      }
+
+      .lightbox-counter {
+        bottom: 1rem;
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+
+    /* ── SEPARATOR ── */
+    .section-separator {
+      max-width: 200px;
+      margin: 3rem auto;
+      border: none;
+      border-top: 2px solid var(--border);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(16, 24, 40, 0.1);
+      text-align: center;
+    }
+
+    .site-footer p {
+      margin: 0.6rem 0;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .site-footer a {
+      color: var(--section-accent);
+      text-decoration: underline dotted;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .site-footer a:hover {
+      color: var(--accent);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .info-table th,
+      .info-table td {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+      }
+
+      .info-table th {
+        width: 40%;
+      }
+
+      .content-card {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .swot-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a href="javascript:history.back()" class="back-link">
+      <span>←</span>
+      <span>Retour au portfolio</span>
+    </a>
+
+    <section class="section">
+      <h1 class="section-title">PRÉSENTATION DE L'ENTREPRISE</h1>
+      <div class="section-content">
+        <p>
+          <strong>AllPerf Business Intelligence</strong> est une entreprise spécialisée dans la <strong>dématérialisation</strong> 
+          et la <strong>Business Intelligence</strong>. L'entreprise est un éditeur de solutions logicielles dédiées à 
+          l'informatisation et à l'automatisation des processus métiers.
+        </p>
+        <p>
+          Membre de la <strong>FNTC</strong> (Fédération Nationale des Tiers de Confiance) et partenaire <strong>GS1</strong>, 
+          AllPerf propose des solutions de <strong>signature électronique</strong>, <strong>gestion de certificats</strong> 
+          et <strong>horodatage</strong> (PDF, XML, DOCX).
+        </p>
+      </div>
+
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">IDENTIFICATION</h2>
+      <div class="info-table">
+        <table>
+          <tbody>
+            <tr>
+              <th>Dénomination</th>
+              <td>AllPerf Business Intelligence</td>
+            </tr>
+            <tr>
+              <th>Forme juridique</th>
+              <td>SARL (Société à Responsabilité Limitée)</td>
+            </tr>
+            <tr>
+              <th>Date de création</th>
+              <td>2 juillet 2008</td>
+            </tr>
+            <tr>
+              <th>Adresse</th>
+              <td>11-13 Rue du Général de Larminat, 94000 Créteil</td>
+            </tr>
+            <tr>
+              <th>Site web</th>
+              <td>allperf.fr</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">HISTORIQUE</h2>
+      <div class="content-card">
+        <p>
+          Fondée le <strong>2 juillet 2008</strong>, AllPerf BI s'est positionnée dès ses débuts comme un acteur 
+          spécialisé dans la <strong>dématérialisation conforme aux directives européennes</strong> et aux recommandations de la DGI.
+        </p>
+        <p>
+          En plus de <strong>15 ans d'existence</strong>, l'entreprise a développé une expertise reconnue en hébergement 
+          de solutions de dématérialisation et en conception de briques logicielles d'automatisation.
+        </p>
+      </div>
+
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">RGPD — PROTECTION DES DONNÉES</h2>
+      <div class="content-card">
+        <p>
+          AllPerf est <strong>conforme RGPD</strong> (Règlement Général sur la Protection des Données), 
+          assurant l'hébergement en France et le chiffrement des données sensibles.
+        </p>
+        <p>
+          L'entreprise garantit la <strong>sécurité et la confidentialité des informations</strong> de ses clients 
+          tout en respectant les normes européennes en vigueur.
+        </p>
+      </div>
+
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">ORIENTATIONS STRATÉGIQUES</h2>
+      <div class="content-card">
+        <p>
+          La stratégie d'AllPerf repose sur le développement de <strong>solutions sur mesure</strong> à déploiement rapide, 
+          garantissant un <strong>retour sur investissement immédiat</strong>. L'entreprise se différencie par sa capacité 
+          à adapter ses outils aux <strong>spécificités métier</strong> de chaque client.
+        </p>
+        <p>
+          L'intégration de technologies modernes (<strong>API, Cloud, SaaS</strong>) et le renforcement de la 
+          <strong>conformité réglementaire</strong> constituent les axes de croissance principaux.
+        </p>
+      </div>
+
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">RSE — RESPONSABILITÉ SOCIÉTALE</h2>
+      <div class="content-card">
+        <p>
+          AllPerf s'inscrit dans une démarche <strong>RSE</strong> en proposant des solutions qui réduisent 
+          l'<strong>impact environnemental de la gestion documentaire</strong>. La dématérialisation des factures, 
+          contrats et courriers contribue directement à la <strong>réduction de papier</strong>.
+        </p>
+        <p>
+          L'entreprise favorise également le <strong>télétravail</strong>, l'<strong>accueil de stagiaires BTS/Licence</strong> 
+          et l'utilisation de technologies ouvertes pour limiter la dépendance aux éditeurs propriétaires.
+        </p>
+      </div>
+
+      <hr class="section-separator" />
+      <h2 class="section-subtitle">ANALYSE SWOT</h2>
+      <div class="swot-grid">
+        <div class="swot-card swot-forces">
+          <h3>🟢 Forces</h3>
+          <ul>
+            <li>Expertise de plus de 15 ans en dématérialisation</li>
+            <li>Solutions sur mesure adaptées aux besoins clients</li>
+            <li>Équipe technique expérimentée et polyvalente</li>
+            <li>Bonne connaissance des réglementations européennes</li>
+          </ul>
+        </div>
+
+        <div class="swot-card swot-faiblesses">
+          <h3>🔴 Faiblesses</h3>
+          <ul>
+            <li>Taille réduite de l'équipe de développement</li>
+            <li>Code legacy nécessitant une modernisation progressive</li>
+            <li>Documentation technique à renforcer</li>
+            <li>Dépendance à certaines technologies propriétaires</li>
+          </ul>
+        </div>
+
+        <div class="swot-card swot-opportunites">
+          <h3>🔵 Opportunités</h3>
+          <ul>
+            <li>Croissance du marché de la dématérialisation</li>
+            <li>Nouvelles directives européennes favorisant le numérique</li>
+            <li>Demande croissante d'automatisation des processus</li>
+            <li>Intégration d'outils modernes (API, Cloud, SaaS)</li>
+          </ul>
+        </div>
+
+        <div class="swot-card swot-menaces">
+          <h3>🟠 Menaces</h3>
+          <ul>
+            <li>Concurrence accrue de grandes plateformes SaaS</li>
+            <li>Évolution rapide des technologies et frameworks</li>
+            <li>Risques liés à la cybersécurité et aux données</li>
+            <li>Pénurie de talents dans le secteur tech</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-separator" />
+
+    <section class="section">
+      <h2 class="section-subtitle">PROJET RÉALISÉ EN STAGE</h2>
+
+      <div class="content-card">
+        <p>
+          Durant mon stage chez AllPerf Business Intelligence, j'ai conçu et développé un <strong>portfolio connecté à Notion</strong>
+          utilisant <strong>Vue.js</strong>. Ce projet visait à créer une solution dynamique permettant de gérer le contenu 
+          du portfolio via l'API Notion, facilitant ainsi les mises à jour et la centralisation des données.
+        </p>
+      </div>
+
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">🎯 Objectifs</h3>
+      <div class="content-card">
+        <ul>
+          <li>
+            <strong>Centraliser la gestion de contenu</strong> — Utiliser Notion comme CMS pour gérer facilement 
+            le contenu du portfolio sans modifier le code source.
+          </li>
+          <li>
+            <strong>Créer une interface réactive</strong> — Développer un frontend avec Vue.js permettant 
+            une navigation fluide et une expérience utilisateur optimale.
+          </li>
+          <li>
+            <strong>Automatiser l'affichage des données</strong> — Récupérer dynamiquement les projets, 
+            compétences et médias depuis Notion via son API.
+          </li>
+          <li>
+            <strong>Faciliter les mises à jour</strong> — Permettre des modifications rapides du contenu 
+            directement dans Notion sans redéploiement.
+          </li>
+        </ul>
+      </div>
+
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">🛠️ Moyens utilisés</h3>
+      <div class="content-card">
+        <ul>
+          <li>
+            <strong>Vue.js</strong> — Framework JavaScript progressif pour le développement de l'interface utilisateur réactive.
+          </li>
+          <li>
+            <strong>Vite</strong> — Outil de build moderne pour un développement rapide et optimisé.
+          </li>
+          <li>
+            <strong>API Notion</strong> — Intégration de l'API Notion pour récupérer et afficher le contenu dynamiquement.
+          </li>
+          <li>
+            <strong>JavaScript / TypeScript</strong> — Langages utilisés pour la logique applicative et les appels API.
+          </li>
+          <li>
+            <strong>HTML / CSS</strong> — Structuration et stylisation de l'interface.
+          </li>
+          <li>
+            <strong>GitHub</strong> — Gestion de version et collaboration sur le projet.
+          </li>
+          <li>
+            <strong>VSCode</strong> — Environnement de développement principal.
+          </li>
+        </ul>
+      </div>
+
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">⚡ Difficultés rencontrées</h3>
+      <div class="content-card">
+        <p>J'ai rencontré plusieurs défis durant ce stage, notamment :</p>
+        <ul>
+          <li>
+            <strong>Compréhension de l'API Notion :</strong> La documentation de l'API Notion étant complexe, 
+            j'ai dû consacrer du temps à comprendre la structure des bases de données, les requêtes et 
+            les formats de réponse pour récupérer correctement les données.
+          </li>
+          <li>
+            <strong>Gestion des images via l'API :</strong> L'affichage dynamique des images stockées dans Notion 
+            nécessitait une gestion particulière des URLs et des permissions d'accès.
+          </li>
+          <li>
+            <strong>Apprentissage de Vue.js :</strong> Bien que j'avais des bases en JavaScript, 
+            Vue.js était un nouveau framework pour moi. J'ai dû me former rapidement aux concepts de 
+            composants, réactivité et gestion d'état.
+          </li>
+          <li>
+            <strong>Organisation et gestion du temps :</strong> Travailler en autonomie sur un projet complet 
+            m'a demandé de mieux structurer mon travail, de prioriser les tâches et de respecter les délais fixés.
+          </li>
+          <li>
+            <strong>Communication avec l'équipe :</strong> La collaboration avec mes collègues sur certaines 
+            parties du projet nécessitait une communication claire et régulière.
+          </li>
+        </ul>
+        <p style="margin-top: 1rem;">
+          Pour surmonter ces difficultés, j'ai sollicité l'aide de mes collègues, consulté régulièrement la 
+          documentation officielle de Vue.js et Notion, et utilisé diverses ressources en ligne telles que 
+          des vidéos explicatives et des tutoriels. J'ai également mis en place des outils de gestion de projet 
+          pour mieux organiser mon travail. De plus, j'ai utilisé l'intelligence artificielle comme outil d'accompagnement 
+          tout au long du projet, notamment pour optimiser mon code, comprendre certains concepts techniques complexes 
+          et améliorer la qualité globale de mes développements.
+        </p>
+      </div>
+
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">✅ Résultats obtenus</h3>
+      <div class="content-card">
+        <ul>
+          <li>
+            <strong>Portfolio fonctionnel et déployé</strong> — Site web opérationnel avec une interface 
+            moderne et responsive, connecté à Notion.
+          </li>
+          <li>
+            <strong>Système de gestion de contenu centralisé</strong> — Les modifications dans Notion 
+            se reflètent automatiquement sur le portfolio après actualisation.
+          </li>
+          <li>
+            <strong>Affichage dynamique des données</strong> — Projets, compétences et médias récupérés 
+            et affichés automatiquement depuis l'API Notion.
+          </li>
+          <li>
+            <strong>Architecture modulaire</strong> — Code organisé en composants Vue.js réutilisables, 
+            facilitant la maintenance et les évolutions futures.
+          </li>
+        </ul>
+      </div>
+
+      <!-- ── GALERIE AVEC FILTRES ── -->
+      <h4 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem); margin-top: 2rem;">📸 Aperçu visuel des projets</h4>
+      <p style="text-align: center; color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem;">
+        Captures d'écran des trois missions réalisées.
+      </p>
+      
+      <div class="gallery-container">
+        <!-- Filtres -->
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-category="all">🎯 Tous</button>
+          <button class="filter-btn" data-category="site-front">🌐 Site Front</button>
+          <button class="filter-btn" data-category="dashboard">📊 Dashboard</button>
+          <button class="filter-btn" data-category="portfolio">💼 Portfolio</button>
+        </div>
+
+        <!-- Grille d'images -->
+        <div class="gallery-grid">
+          <!-- Site Front -->
+          <div class="gallery-item" data-category="site-front" onclick="openLightbox('../src/Images/frontend-site.png')">
+            <img src="../src/Images/frontend-site.png" alt="Frontend du site" />
+            <div class="gallery-item-caption">Frontend — Page d'accueil du site</div>
+          </div>
+          <div class="gallery-item" data-category="site-front" onclick="openLightbox('../src/Images/api-youtube.png')">
+            <img src="../src/Images/api-youtube.png" alt="API YouTube" />
+            <div class="gallery-item-caption">API YouTube — Intégration avec YouTube</div>
+          </div>
+
+          <!-- Dashboard -->
+          <div class="gallery-item" data-category="dashboard" onclick="openLightbox('../src/Images/dashboard.png')">
+            <img src="../src/Images/dashboard.png" alt="Dashboard" />
+            <div class="gallery-item-caption">Dashboard — Interface principale</div>
+          </div>
+          <div class="gallery-item" data-category="dashboard" onclick="openLightbox('../src/Images/api-notion.png')">
+            <img src="../src/Images/api-notion.png" alt="API Notion" />
+            <div class="gallery-item-caption">API Notion — Intégration avec Notion</div>
+          </div>
+
+          <!-- Portfolio -->
+          <div class="gallery-item" data-category="portfolio" onclick="openLightbox('../src/Images/portfolio-orel.png')">
+            <img src="../src/Images/portfolio-orel.png" alt="Portfolio Orel" />
+            <div class="gallery-item-caption">Portfolio — Page d'accueil</div>
+          </div>
+          <div class="gallery-item" data-category="portfolio" onclick="openLightbox('../src/Images/portfolio-about.png')">
+            <img src="../src/Images/portfolio-about.png" alt="Section À propos" />
+            <div class="gallery-item-caption">Portfolio — Section À propos</div>
+          </div>
+          <div class="gallery-item" data-category="portfolio" onclick="openLightbox('../src/Images/portfolio-skills.png')">
+            <img src="../src/Images/portfolio-skills.png" alt="Compétences" />
+            <div class="gallery-item-caption">Portfolio — Compétences techniques</div>
+          </div>
+          <div class="gallery-item" data-category="portfolio" onclick="openLightbox('../src/Images/portfolio-parcours.png')">
+            <img src="../src/Images/portfolio-parcours.png" alt="Parcours" />
+            <div class="gallery-item-caption">Portfolio — Mon parcours</div>
+          </div>
+          <div class="gallery-item" data-category="portfolio" onclick="openLightbox('../src/Images/portfolio-exemple-project.png')">
+            <img src="../src/Images/portfolio-exemple-project.png" alt="Exemple de projet" />
+            <div class="gallery-item-caption">Portfolio — Exemple de projet</div>
+          </div>
+          <div class="gallery-item" data-category="portfolio" onclick="openLightbox('../src/Images/portfolio-projects-developpement.png')">
+            <img src="../src/Images/portfolio-projects-developpement.png" alt="Projets développement" />
+            <div class="gallery-item-caption">Portfolio — Projets de développement</div>
+          </div>
+          <div class="gallery-item" data-category="portfolio" onclick="openLightbox('../src/Images/portfolio-projects-community.png')">
+            <img src="../src/Images/portfolio-projects-community.png" alt="Projets community" />
+            <div class="gallery-item-caption">Portfolio — Projets communautaires</div>
+          </div>
+          <div class="gallery-item" data-category="portfolio" onclick="openLightbox('../src/Images/portfolio-contact.png')">
+            <img src="../src/Images/portfolio-contact.png" alt="Contact" />
+            <div class="gallery-item-caption">Portfolio — Page de contact</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lightbox -->
+      <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" onclick="navigateLightbox(-1)">
+          ‹
+        </button>
+        <div class="lightbox-content" onclick="closeLightbox()">
+          <img id="lightbox-img" src="" alt="Agrandissement" onclick="event.stopPropagation()" />
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" onclick="navigateLightbox(1)">
+          ›
+        </button>
+        <div class="lightbox-counter" id="lightbox-counter">1 / 12</div>
+      </div>
+
+      <h2 class="section-subtitle">CONCLUSION</h2>
+      <div class="content-card">
+        <p>
+          Ce stage a été une étape importante dans mon parcours. J'ai pu mettre en pratique mes compétences tout en 
+          découvrant de nouvelles technologies. J'ai découvert de nombreux aspects de la vie d'un développeur, et 
+          remarqué que cela ne se limite pas simplement à du développement, mais bien à de la recherche, de 
+          l'organisation, de la communication et enfin de la programmation.
+        </p>
+        <p>
+          Cette expérience m'a également permis de mieux comprendre l'importance de la collaboration et de 
+          l'adaptabilité dans un environnement professionnel. Je suis convaincu que les compétences et les leçons 
+          apprises durant ce stage me seront précieuses pour mes futures expériences professionnelles.
+        </p>
+      </div>
+
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <p>Me contacter sur l'adresse mail : <a href="https://mail.google.com/mail/?view=cm&fs=1&to=adamchichepro@gmail.com"
+        target="_blank" rel="noopener noreferrer">adamchichepro@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // ── DONNÉES DE LA GALERIE ──
+    const galleryData = [
+      // Site Front
+      { src: '../src/Images/frontend-site.png', caption: 'Frontend — Page d\'accueil du site', category: 'site-front' },
+      { src: '../src/Images/api-youtube.png', caption: 'API YouTube — Intégration avec YouTube', category: 'site-front' },
+      // Dashboard
+      { src: '../src/Images/dashboard.png', caption: 'Dashboard — Interface principale', category: 'dashboard' },
+      { src: '../src/Images/api-notion.png', caption: 'API Notion — Intégration avec Notion', category: 'dashboard' },
+      // Portfolio
+      { src: '../src/Images/portfolio-orel.png', caption: 'Portfolio — Page d\'accueil', category: 'portfolio' },
+      { src: '../src/Images/portfolio-about.png', caption: 'Portfolio — Section À propos', category: 'portfolio' },
+      { src: '../src/Images/portfolio-skills.png', caption: 'Portfolio — Compétences techniques', category: 'portfolio' },
+      { src: '../src/Images/portfolio-parcours.png', caption: 'Portfolio — Mon parcours', category: 'portfolio' },
+      { src: '../src/Images/portfolio-exemple-project.png', caption: 'Portfolio — Exemple de projet', category: 'portfolio' },
+      { src: '../src/Images/portfolio-projects-developpement.png', caption: 'Portfolio — Projets de développement', category: 'portfolio' },
+      { src: '../src/Images/portfolio-projects-community.png', caption: 'Portfolio — Projets communautaires', category: 'portfolio' },
+      { src: '../src/Images/portfolio-contact.png', caption: 'Portfolio — Page de contact', category: 'portfolio' }
+    ];
+
+    let currentCategory = 'all';
+    let currentImageIndex = 0;
+    let visibleImages = [];
+
+    // ── SYSTÈME DE FILTRES ──
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Retirer la classe active de tous les boutons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Ajouter la classe active au bouton cliqué
+        button.classList.add('active');
+
+        currentCategory = button.getAttribute('data-category');
+
+        // Filtrer les images
+        galleryItems.forEach(item => {
+          if (currentCategory === 'all') {
+            item.classList.remove('hidden');
+          } else {
+            if (item.getAttribute('data-category') === currentCategory) {
+              item.classList.remove('hidden');
+            } else {
+              item.classList.add('hidden');
+            }
+          }
+        });
+      });
+    });
+
+    // ── LIGHTBOX ──
+    function getVisibleImages() {
+      if (currentCategory === 'all') {
+        return galleryData;
+      }
+      return galleryData.filter(img => img.category === currentCategory);
+    }
+
+    function openLightbox(src) {
+      visibleImages = getVisibleImages();
+      currentImageIndex = visibleImages.findIndex(img => img.src === src);
+      
+      if (currentImageIndex === -1) currentImageIndex = 0;
+      
+      updateLightbox();
+      
+      const overlay = document.getElementById('lightbox');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function updateLightbox() {
+      const img = document.getElementById('lightbox-img');
+      const counter = document.getElementById('lightbox-counter');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+
+      const current = visibleImages[currentImageIndex];
+      img.src = current.src;
+      img.alt = current.caption;
+      counter.textContent = `${currentImageIndex + 1} / ${visibleImages.length}`;
+
+      // Désactiver les boutons aux extrémités
+      if (currentImageIndex === 0) {
+        prevBtn.classList.add('disabled');
+      } else {
+        prevBtn.classList.remove('disabled');
+      }
+
+      if (currentImageIndex === visibleImages.length - 1) {
+        nextBtn.classList.add('disabled');
+      } else {
+        nextBtn.classList.remove('disabled');
+      }
+    }
+
+    function navigateLightbox(direction) {
+      const newIndex = currentImageIndex + direction;
+      if (newIndex >= 0 && newIndex < visibleImages.length) {
+        currentImageIndex = newIndex;
+        updateLightbox();
+      }
+    }
+
+    function closeLightbox() {
+      const overlay = document.getElementById('lightbox');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // ── NAVIGATION AU CLAVIER ──
+    document.addEventListener('keydown', (e) => {
+      const overlay = document.getElementById('lightbox');
+      if (overlay.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          navigateLightbox(-1);
+        } else if (e.key === 'ArrowRight') {
+          navigateLightbox(1);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
