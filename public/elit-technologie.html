@@ -43,7 +43,7 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 3rem 2rem;
+      padding: 5rem 2rem 3rem;
     }
 
     .back-link {
@@ -518,15 +518,142 @@
         padding: 1.5rem;
       }
     }
+
+    /* ═══════ NAVBAR ═══════ */
+    .topnav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 0.75rem 0;
+      backdrop-filter: blur(10px) saturate(180%);
+      background: rgba(15, 23, 36, 0.9);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .topnav.scrolled {
+      padding: 0.5rem 0;
+      background: rgba(15, 23, 36, 0.98);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: #94a3b8;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover, .nav-link:focus, .nav-link.active {
+      color: #f8fafc;
+      background: rgba(255,255,255,0.05);
+    }
+    .nav-link:hover::after, .nav-link:focus::after, .nav-link.active::after {
+      width: 70%;
+    }
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: #f8fafc;
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .menu-toggle .hamburger {
+      position: relative;
+      width: 20px; height: 2px;
+      background: currentColor;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle .hamburger::before,
+    .menu-toggle .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 100%; height: 100%;
+      background: currentColor;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle .hamburger::before { transform: translateY(-6px); }
+    .menu-toggle .hamburger::after { transform: translateY(6px); }
+    .menu-toggle[aria-expanded='true'] .hamburger { background: transparent; }
+    .menu-toggle[aria-expanded='true'] .hamburger::before { transform: rotate(45deg); }
+    .menu-toggle[aria-expanded='true'] .hamburger::after { transform: rotate(-45deg); }
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+    .mobile-overlay[data-visible='true'] { display: block; }
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: -100%; bottom: 0;
+        width: 80%; max-width: 300px;
+        background: #0f1724;
+        flex-direction: column;
+        padding: 5rem 1.5rem 2rem;
+        box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+      }
+      .nav-links[data-visible='true'] { transform: translateX(-100%); }
+      .nav-link { width: 100%; padding: 0.75rem 1rem; margin: 0.25rem 0; }
+      .nav-link::after { display: none; }
+    }
   </style>
 </head>
 
 <body>
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay" data-visible="false"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="topnav" id="topnav">
+    <div class="nav-container">
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Menu">
+        <span class="hamburger"></span>
+      </button>
+      <div class="nav-links" id="navLinks" data-visible="false">
+        <a href="/PORTFOLIO-E5/" class="nav-link">Accueil</a>
+        <a href="/PORTFOLIO-E5/allperf.html" class="nav-link">Stage Allperf</a>
+        <a href="/PORTFOLIO-E5/elit-technologie.html" class="nav-link active">Stage ElitTechnologie</a>
+        <a href="/PORTFOLIO-E5/immo-sync.html" class="nav-link">ImmoSync</a>
+      </div>
+    </div>
+  </nav>
+
   <div class="container">
-    <a href="javascript:history.back()" class="back-link">
-      <span>←</span>
-      <span>Retour au portfolio</span>
-    </a>
 
     <section class="section">
 
@@ -900,6 +1027,40 @@
     });
 
     updateGallery();
+  </script>
+
+  <!-- Navbar JS -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('mobileOverlay');
+    const topnav = document.getElementById('topnav');
+
+    function closeMobileMenu() {
+      navLinks.setAttribute('data-visible', 'false');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      overlay.setAttribute('data-visible', 'false');
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.getAttribute('data-visible') === 'true';
+      navLinks.setAttribute('data-visible', !isOpen);
+      menuToggle.setAttribute('aria-expanded', !isOpen);
+      overlay.setAttribute('data-visible', !isOpen);
+    });
+
+    overlay.addEventListener('click', closeMobileMenu);
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.classList.contains('nav-link')) closeMobileMenu();
+    });
+
+    window.addEventListener('scroll', () => {
+      topnav.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) closeMobileMenu();
+    });
   </script>
 </body>
 
