@@ -153,10 +153,10 @@ function App() {
                 </p>
               </div>
               <div className="hero-cta">
-                <a className="btn" href="/CV-BTS-SIO.pdf" download>
+                <a className="btn" href={`${import.meta.env.BASE_URL}CV-BTS-SIO.pdf`} download>
                   Télécharger mon CV
                 </a>
-                <a className="btn ghost" href="/CV-BTS-SIO.pdf" target="_blank" rel="noopener noreferrer">
+                <a className="btn ghost" href={`${import.meta.env.BASE_URL}CV-BTS-SIO.pdf`} target="_blank" rel="noopener noreferrer">
                   Consulter mon CV
                 </a>
               </div>
