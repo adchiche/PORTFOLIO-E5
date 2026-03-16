@@ -307,6 +307,21 @@
       display: block;
     }
 
+    .screenshot-thumb {
+      overflow: hidden;
+    }
+
+    .screenshot-item--editor .screenshot-thumb {
+      aspect-ratio: 16 / 9;
+    }
+
+    .screenshot-item--editor .screenshot-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
     .screenshot-caption {
       padding: 1rem 1.2rem;
       font-size: 0.95rem;
@@ -927,12 +942,40 @@
       <h4 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem); margin-top: 2rem;">📸 Aperçu visuel des projets</h4>
       <div class="project-screenshots">
         <div class="screenshot-item" onclick="openLightbox('Images/webex-cve-room.png')">
-          <img src="Images/webex-cve-room.png" alt="Room Webex avec alertes CVE critiques" />
+          <div class="screenshot-thumb">
+            <img src="Images/webex-cve-room.png" alt="Room Webex avec alertes CVE critiques" />
+          </div>
           <p class="screenshot-caption">Room Webex — Réception des alertes CVE critiques en temps réel</p>
         </div>
         <div class="screenshot-item" onclick="openLightbox('Images/nist-cve.png')">
-          <img src="Images/nist-cve.png" alt="Page NIST NVD — Détail d'une CVE" />
+          <div class="screenshot-thumb">
+            <img src="Images/nist-cve.png" alt="Page NIST NVD — Détail d'une CVE" />
+          </div>
           <p class="screenshot-caption">NVD (NIST) — Page de détail d'une CVE critique récupérée par le script</p>
+        </div>
+        <div class="screenshot-item screenshot-item--editor" onclick="openLightbox('Images/param-script.png')">
+          <div class="screenshot-thumb">
+            <img src="Images/param-script.png" alt="Parametrage du script Python" />
+          </div>
+          <p class="screenshot-caption">Parametrage du script Python pour l'automatisation des alertes CVE</p>
+        </div>
+        <div class="screenshot-item screenshot-item--editor" onclick="openLightbox('Images/cursor-json.png')">
+          <div class="screenshot-thumb">
+            <img src="Images/cursor-json.png" alt="Configuration JSON dans Cursor" />
+          </div>
+          <p class="screenshot-caption">Configuration JSON du projet dans le projet</p>
+        </div>
+        <div class="screenshot-item screenshot-item--editor" onclick="openLightbox('Images/sent-json.png')">
+          <div class="screenshot-thumb">
+            <img src="Images/sent-json.png" alt="Envoi des donnees JSON" />
+          </div>
+          <p class="screenshot-caption">Envoi des donnees JSON utilisees par le script d'automatisation</p>
+        </div>
+        <div class="screenshot-item screenshot-item--editor" onclick="openLightbox('Images/script-py.png')">
+          <div class="screenshot-thumb">
+            <img src="Images/script-py.png" alt="Code du script Python" />
+          </div>
+          <p class="screenshot-caption">Script Python de traitement et d'envoi des alertes Webex</p>
         </div>
       </div>
 
