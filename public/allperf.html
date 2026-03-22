@@ -100,6 +100,33 @@
       border: 1px solid var(--border);
     }
 
+    .stage-nav {
+      display: flex;
+      justify-content: center;
+      margin: 2rem auto 0;
+    }
+
+    .stage-nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.6rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--section-accent), var(--accent));
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .stage-nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px rgba(37, 99, 235, 0.24);
+      background: linear-gradient(135deg, var(--accent-hover), var(--accent));
+    }
+
     /* ── IDENTIFICATION TABLE ── */
     .info-table {
       max-width: 980px;
@@ -190,6 +217,58 @@
     .content-card strong {
       color: var(--text);
       font-weight: 600;
+    }
+
+    .tools-grid {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tool-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .tool-card-media {
+      background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tool-card-media img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+      display: block;
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .tool-card-body {
+      padding: 1.25rem 1.35rem 1.4rem;
+    }
+
+    .tool-card-body h4 {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 0.45rem;
+      font-weight: 700;
+    }
+
+    .tool-card-body p {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--muted);
     }
 
     /* ── SWOT GRID ── */
@@ -583,6 +662,14 @@
       .swot-grid {
         grid-template-columns: 1fr;
       }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-card-media img {
+        height: 220px;
+      }
     }
 
     /* ═══════ NAVBAR ═══════ */
@@ -731,8 +818,7 @@
         </p>
         <p>
           Membre de la <strong>FNTC</strong> (Fédération Nationale des Tiers de Confiance) et partenaire <strong>GS1</strong>, 
-          AllPerf propose des solutions de <strong>signature électronique</strong>, <strong>gestion de certificats</strong> 
-          et <strong>horodatage</strong> (PDF, XML, DOCX).
+          AllPerf propose des solutions de <strong>signature électronique</strong>, et <strong>horodatage</strong> (PDF, XML, DOCX).
         </p>
       </div>
 
@@ -774,7 +860,7 @@
         </p>
         <p>
           En plus de <strong>15 ans d'existence</strong>, l'entreprise a développé une expertise reconnue en hébergement 
-          de solutions de dématérialisation et en conception de briques logicielles d'automatisation.
+          de solutions de dématérialisation et en <strong>gestion numérique des documents.</strong> 
         </p>
       </div>
 
@@ -796,7 +882,7 @@
       <div class="content-card">
         <p>
           La stratégie d'AllPerf repose sur le développement de <strong>solutions sur mesure</strong> à déploiement rapide, 
-          garantissant un <strong>retour sur investissement immédiat</strong>. L'entreprise se différencie par sa capacité 
+          en s’adaptant <strong>aux besoins de leurs clients</strong>. L'entreprise se différencie par sa capacité 
           à adapter ses outils aux <strong>spécificités métier</strong> de chaque client.
         </p>
         <p>
@@ -814,7 +900,7 @@
           contrats et courriers contribue directement à la <strong>réduction de papier</strong>.
         </p>
         <p>
-          L'entreprise favorise également le <strong>télétravail</strong>, l'<strong>accueil de stagiaires BTS/Licence</strong> 
+          L'entreprise met également en place des pratiques comme le <strong>télétravail</strong>, l'<strong>accueil de stagiaires BTS/Licence</strong> 
           et l'utilisation de technologies ouvertes pour limiter la dépendance aux éditeurs propriétaires.
         </p>
       </div>
@@ -825,9 +911,9 @@
         <div class="swot-card swot-forces">
           <h3>🟢 Forces</h3>
           <ul>
-            <li>Expertise de plus de 15 ans en dématérialisation</li>
-            <li>Solutions sur mesure adaptées aux besoins clients</li>
+            <li>Expertise technique de plus de 15 ans en dématérialisation</li>
             <li>Équipe technique expérimentée et polyvalente</li>
+            <li>Solutions sur mesure adaptées aux besoins clients</li>
             <li>Bonne connaissance des réglementations européennes</li>
           </ul>
         </div>
@@ -838,7 +924,7 @@
             <li>Taille réduite de l'équipe de développement</li>
             <li>Code legacy nécessitant une modernisation progressive</li>
             <li>Documentation technique à renforcer</li>
-            <li>Dépendance à certaines technologies propriétaires</li>
+            <li>Limitation des ressources</li>
           </ul>
         </div>
 
@@ -895,92 +981,6 @@
           <li>
             <strong>Faciliter les mises à jour</strong> — Permettre des modifications rapides du contenu 
             directement dans Notion sans redéploiement.
-          </li>
-        </ul>
-      </div>
-
-      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">🛠️ Moyens utilisés</h3>
-      <div class="content-card">
-        <ul>
-          <li>
-            <strong>Vue.js</strong> — Framework JavaScript progressif pour le développement de l'interface utilisateur réactive.
-          </li>
-          <li>
-            <strong>Vite</strong> — Outil de build moderne pour un développement rapide et optimisé.
-          </li>
-          <li>
-            <strong>API Notion</strong> — Intégration de l'API Notion pour récupérer et afficher le contenu dynamiquement.
-          </li>
-          <li>
-            <strong>JavaScript / TypeScript</strong> — Langages utilisés pour la logique applicative et les appels API.
-          </li>
-          <li>
-            <strong>HTML / CSS</strong> — Structuration et stylisation de l'interface.
-          </li>
-          <li>
-            <strong>GitHub</strong> — Gestion de version et collaboration sur le projet.
-          </li>
-          <li>
-            <strong>VSCode</strong> — Environnement de développement principal.
-          </li>
-        </ul>
-      </div>
-
-      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">⚡ Difficultés rencontrées</h3>
-      <div class="content-card">
-        <p>J'ai rencontré plusieurs défis durant ce stage, notamment :</p>
-        <ul>
-          <li>
-            <strong>Compréhension de l'API Notion :</strong> La documentation de l'API Notion étant complexe, 
-            j'ai dû consacrer du temps à comprendre la structure des bases de données, les requêtes et 
-            les formats de réponse pour récupérer correctement les données.
-          </li>
-          <li>
-            <strong>Gestion des images via l'API :</strong> L'affichage dynamique des images stockées dans Notion 
-            nécessitait une gestion particulière des URLs et des permissions d'accès.
-          </li>
-          <li>
-            <strong>Apprentissage de Vue.js :</strong> Bien que j'avais des bases en JavaScript, 
-            Vue.js était un nouveau framework pour moi. J'ai dû me former rapidement aux concepts de 
-            composants, réactivité et gestion d'état.
-          </li>
-          <li>
-            <strong>Organisation et gestion du temps :</strong> Travailler en autonomie sur un projet complet 
-            m'a demandé de mieux structurer mon travail, de prioriser les tâches et de respecter les délais fixés.
-          </li>
-          <li>
-            <strong>Communication avec l'équipe :</strong> La collaboration avec mes collègues sur certaines 
-            parties du projet nécessitait une communication claire et régulière.
-          </li>
-        </ul>
-        <p style="margin-top: 1rem;">
-          Pour surmonter ces difficultés, j'ai sollicité l'aide de mes collègues, consulté régulièrement la 
-          documentation officielle de Vue.js et Notion, et utilisé diverses ressources en ligne telles que 
-          des vidéos explicatives et des tutoriels. J'ai également mis en place des outils de gestion de projet 
-          pour mieux organiser mon travail. De plus, j'ai utilisé l'intelligence artificielle comme outil d'accompagnement 
-          tout au long du projet, notamment pour optimiser mon code, comprendre certains concepts techniques complexes 
-          et améliorer la qualité globale de mes développements.
-        </p>
-      </div>
-
-      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">✅ Résultats obtenus</h3>
-      <div class="content-card">
-        <ul>
-          <li>
-            <strong>Portfolio fonctionnel et déployé</strong> — Site web opérationnel avec une interface 
-            moderne et responsive, connecté à Notion.
-          </li>
-          <li>
-            <strong>Système de gestion de contenu centralisé</strong> — Les modifications dans Notion 
-            se reflètent automatiquement sur le portfolio après actualisation.
-          </li>
-          <li>
-            <strong>Affichage dynamique des données</strong> — Projets, compétences et médias récupérés 
-            et affichés automatiquement depuis l'API Notion.
-          </li>
-          <li>
-            <strong>Architecture modulaire</strong> — Code organisé en composants Vue.js réutilisables, 
-            facilitant la maintenance et les évolutions futures.
           </li>
         </ul>
       </div>
@@ -1051,6 +1051,10 @@
             <img src="Images/portfolio-projects-community.png" alt="Projets community" />
             <div class="gallery-item-caption">Portfolio — Projets communautaires</div>
           </div>
+          <div class="gallery-item" data-category="portfolio" onclick="openLightbox('Images/notion-portfolio.png')">
+            <img src="Images/notion-portfolio.png" alt="Gestion du portfolio dans Notion" />
+            <div class="gallery-item-caption">Portfolio — Gestion du contenu dans Notion</div>
+          </div>
           <div class="gallery-item" data-category="portfolio" onclick="openLightbox('Images/portfolio-contact.png')">
             <img src="Images/portfolio-contact.png" alt="Contact" />
             <div class="gallery-item-caption">Portfolio — Page de contact</div>
@@ -1073,6 +1077,112 @@
         <div class="lightbox-counter" id="lightbox-counter">1 / 12</div>
       </div>
 
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">🛠️ Moyens utilisés</h3>
+      <div class="tools-grid">
+        <article class="tool-card">
+          <div class="tool-card-media">
+            <img src="./Images/vue-js.png" alt="Logo Vue.js utilisé pour le développement du portfolio" />
+          </div>
+          <div class="tool-card-body">
+            <h4>Vue.js</h4>
+            <p>Framework utilisé pour développer une interface dynamique, fluide et réactive.</p>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <div class="tool-card-media">
+            <img src="./Images/notion.png" alt="Logo Notion utilisé comme source de contenu du portfolio" />
+          </div>
+          <div class="tool-card-body">
+            <h4>Notion</h4>
+            <p>Outil utilisé comme CMS pour centraliser et mettre à jour facilement les contenus.</p>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <div class="tool-card-media">
+            <img src="./Images/javascript.png" alt="Logo JavaScript utilisé pour la logique du projet" />
+          </div>
+          <div class="tool-card-body">
+            <h4>JavaScript</h4>
+            <p>Langage utilisé pour la logique applicative et l'organisation technique du projet.</p>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <div class="tool-card-media">
+            <img src="./Images/github.png" alt="Logo GitHub utilisé pour le versionnement du projet" />
+          </div>
+          <div class="tool-card-body">
+            <h4>GitHub</h4>
+            <p>Plateforme utilisée pour le versionnement du code et le suivi des évolutions du projet.</p>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">⚡ Difficultés rencontrées</h3>
+      <div class="content-card">
+        <p>J'ai rencontré plusieurs défis durant ce stage, notamment :</p>
+        <ul>
+          <li>
+            <strong>Montée en compétences technique :</strong> Le début du stage a surtout demandé un important temps 
+            d'adaptation pour prendre en main <strong>JavaScript</strong> et 
+            <strong>Vue.js</strong>, qui étaient alors de nouveaux outils pour moi.
+          </li>
+          <li>
+            <strong>Compréhension du projet :</strong> J'ai dû apprendre progressivement à comprendre le <strong>fonctionnement</strong> 
+            global de l'application, sa logique interne et la manière dont les différentes parties du projet 
+            <strong>s'organisaient</strong>  entre elles.
+            
+          </li>
+          <li>
+            <strong>Gestion des données :</strong> Certaines manipulations ont nécessité une attention particulière, 
+            notamment pour le traitement des <strong>données</strong> et l'intégration correcte des 
+            <strong>images</strong> dans l'application.
+          </li>
+          <li>
+            <strong>Méthode de progression :</strong> Pour avancer plus efficacement, je me suis appuyé sur la 
+            <strong>documentation</strong> technique ainsi que sur l'accompagnement de ma <strong>tutrice</strong>, 
+            ce qui m'a permis de gagner en autonomie tout au long du stage.
+          </li>
+          <li>
+            <strong>Communication avec l'équipe :</strong> La collaboration avec mes collègues sur certaines 
+            parties du projet nécessitait une communication claire et régulière.
+          </li>
+        </ul>
+        <p style="margin-top: 1rem;">
+          Pour surmonter ces difficultés, j'ai sollicité l'aide de mes collègues, consulté régulièrement la 
+          documentation officielle de Vue.js et Notion, et utilisé diverses ressources en ligne telles que 
+          des vidéos explicatives et des tutoriels. J'ai également mis en place des outils de gestion de projet 
+          pour mieux organiser mon travail. De plus, j'ai utilisé l'intelligence artificielle comme outil d'accompagnement 
+          tout au long du projet, notamment pour optimiser mon code, comprendre certains concepts techniques complexes 
+          et améliorer la qualité globale de mes développements.
+        </p>
+      </div>
+
+      <h3 class="section-subtitle" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">✅ Résultats obtenus</h3>
+      <div class="content-card">
+        <ul>
+          <li>
+            <strong>Portfolio fonctionnel et déployé</strong> — Site web opérationnel avec une interface 
+            moderne et responsive, connecté à Notion.
+          </li>
+          <li>
+            <strong>Système de gestion de contenu centralisé</strong> — Les modifications dans Notion 
+            se reflètent automatiquement sur le portfolio après actualisation.
+          </li>
+          <li>
+            <strong>Affichage dynamique des données</strong> — Projets, compétences et médias récupérés 
+            et affichés automatiquement depuis l'API Notion.
+          </li>
+          <li>
+            <strong>Architecture modulaire</strong> — Code organisé en composants Vue.js réutilisables, 
+            facilitant la maintenance et les évolutions futures.
+          </li>
+        </ul>
+      </div>
+
+
       <h2 class="section-subtitle">CONCLUSION</h2>
       <div class="content-card">
         <p>
@@ -1086,6 +1196,10 @@
           l'adaptabilité dans un environnement professionnel. Je suis convaincu que les compétences et les leçons 
           apprises durant ce stage me seront précieuses pour mes futures expériences professionnelles.
         </p>
+      </div>
+
+      <div class="stage-nav">
+        <a href="/PORTFOLIO-E5/elit-technologie.html" class="stage-nav-button">Voir le deuxième stage</a>
       </div>
 
     </section>
@@ -1113,6 +1227,7 @@
       { src: 'Images/portfolio-exemple-project.png', caption: 'Portfolio — Exemple de projet', category: 'portfolio' },
       { src: 'Images/portfolio-projects-developpement.png', caption: 'Portfolio — Projets de développement', category: 'portfolio' },
       { src: 'Images/portfolio-projects-community.png', caption: 'Portfolio — Projets communautaires', category: 'portfolio' },
+      { src: 'Images/notion-portfolio.png', caption: 'Portfolio — Gestion du contenu dans Notion', category: 'portfolio' },
       { src: 'Images/portfolio-contact.png', caption: 'Portfolio — Page de contact', category: 'portfolio' }
     ];
 

@@ -44,6 +44,7 @@ function App() {
   const [modal, setModal] = useState(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const syntheseUrl = `${import.meta.env.BASE_URL}tableau-synthese.pdf`
 
   // Gestion du thème
   useEffect(() => {
@@ -124,7 +125,7 @@ function App() {
         <div className="hero-inner">
           <div className="presentation">
             <h1>
-              Salut, je suis <span className="name">Adam Chiche</span>
+              Bonjour, je suis <span className="name">Adam CHICHE</span>
             </h1>
             <section aria-label="Présentation courte">
               <div className="presentation-inner">
@@ -243,7 +244,14 @@ function App() {
           </article>
         </div>
         <div className="bts-cta-wrap">
-          <a className="btn bts-cta" href="#synthese">Consulter le tableau de synthèse</a>
+          <a
+            className="btn bts-cta"
+            href={syntheseUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consulter le tableau de synthèse
+          </a>
         </div>
 
       </section>

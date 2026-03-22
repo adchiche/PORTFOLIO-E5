@@ -87,14 +87,42 @@
     }
 
     /* Gallery styles */
-    .gallery-container {
-      max-width: 900px;
-      margin: 0 auto;
+    .gallery-section {
+      display: grid;
+      gap: 2rem;
+      margin: 0 auto 2rem;
+      max-width: 980px;
+    }
+
+    .gallery-group {
       background: #fff;
-      border-radius: 12px;
+      border-radius: 16px;
       box-shadow: 0 10px 22px rgba(16, 24, 40, 0.06);
       border: 1px solid rgba(16, 24, 40, 0.06);
       padding: 2rem;
+    }
+
+    .gallery-header {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    .gallery-subtitle {
+      font-size: 1.6rem;
+      color: var(--section-accent);
+      margin-bottom: 0.4rem;
+      font-weight: 800;
+    }
+
+    .gallery-description {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .gallery-container {
+      max-width: 900px;
+      margin: 0 auto;
       position: relative;
     }
 
@@ -160,6 +188,125 @@
       font-weight: 500;
     }
 
+    .gallery-caption {
+      margin-top: 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .tech-section {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .tech-category {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 22px rgba(16, 24, 40, 0.06);
+      border: 1px solid rgba(16, 24, 40, 0.06);
+      padding: 1.75rem;
+      text-align: left;
+    }
+
+    .tech-category-title {
+      color: var(--section-accent);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 1.1rem;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .tech-card {
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      border: 1px solid rgba(16, 24, 40, 0.08);
+      border-radius: 14px;
+      padding: 1.5rem;
+      min-height: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .tech-card img {
+      width: 100%;
+      max-width: 180px;
+      height: 130px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .versions-layout {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .version-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 22px rgba(16, 24, 40, 0.06);
+      border: 1px solid rgba(16, 24, 40, 0.06);
+      padding: 1.9rem;
+      text-align: left;
+      color: var(--muted);
+    }
+
+    .version-card h3 {
+      color: var(--section-accent);
+      margin-bottom: 0.9rem;
+      font-size: 1.45rem;
+      line-height: 1.3;
+    }
+
+    .version-card p {
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .version-card--large {
+      grid-column: 1 / -1;
+    }
+
+    .next-step-wrap {
+      max-width: 980px;
+      margin: 1.75rem auto 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .next-step-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 1rem 1.6rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #2563eb 0%, #0d70a7 100%);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .next-step-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(37, 99, 235, 0.28);
+    }
+
     /* Footer styles */
     .site-footer {
       margin-top: 4rem;
@@ -210,6 +357,10 @@
 
       .gallery-container {
         padding: 1.5rem;
+      }
+
+      .versions-layout {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -352,9 +503,9 @@
       <h1 class="section-title">BUT DU PROJET</h1>
       <div class="section-content">
         <p>
-          Ce projet vise à développer une application dédiée à la gestion et au suivi de travaux. 
-          Elle permet de centraliser les projets, de suivre l'avancement des chantiers et de faciliter 
-          la coordination entre les différents utilisateurs, tels que les propriétaires, les inspecteurs 
+          Ce projet vise à <strong>développer une application en JAVA et WEB</strong> dédiée à la gestion et au suivi de travaux. 
+          Elle permet de <strong>centraliser les projets</strong>, de <strong>suivre l'avancement des chantiers </strong> et de <strong>faciliter la coordination </strong> 
+          entre les différents utilisateurs, tels que les propriétaires, les inspecteurs 
           et les entrepreneurs. Chaque utilisateur dispose d'un espace adapté à son rôle, lui permettant 
           d'accéder aux informations et fonctionnalités qui le concernent. Le projet comprend également 
           un espace administrateur et un espace gestionnaire, offrant un contrôle global sur l'application, 
@@ -362,86 +513,92 @@
         </p>
       </div>
 
-      <h1 class="section-title">GALERIE</h1>
+      <h1 class="section-title">DIFFÉRENTES VERSIONS</h1>
+      <div class="versions-layout">
+        <article class="version-card">
+          <h3>Première version (Java)</h3>
+          <p>Base de l'application de gestion avec création, modification et consultation des principales entités métier.</p>
+        </article>
 
-      <div class="gallery-container">
-        <div class="gallery-image-wrapper">
-          <img id="gallery-image" class="gallery-image" src="" alt="Image de démonstration">
-        </div>
-        <div class="gallery-controls">
-          <button id="prev-btn" class="gallery-btn">← Précédent</button>
-          <span id="counter" class="gallery-counter">1 / 5</span>
-          <button id="next-btn" class="gallery-btn">Suivant →</button>
-        </div>
+        <article class="version-card">
+          <h3>Deuxième version (Java / Web mobile)</h3>
+          <p>Ajout du suivi des chantiers, des inspections terrain et d'une interface web mobile pour l'inspecteur.</p>
+        </article>
+
+        <article class="version-card">
+          <h3>Troisième version (Java)</h3>
+          <p>Mise en place de la communication automatique des entrepreneurs selon des critères géographiques.</p>
+        </article>
+
+        <article class="version-card">
+          <h3>Quatrième version (Symfony)</h3>
+          <p>Création d'un espace entrepreneur web pour consulter les demandes et envoyer des propositions sécurisées.</p>
+        </article>
+
+        <article class="version-card version-card--large">
+          <h3>Cinquième version (Java)</h3>
+          <p>Développement d'un outil de comparaison des devis pour aider le gestionnaire à choisir la proposition la plus adaptée selon plusieurs critères.</p>
+        </article>
       </div>
 
       <h1 class="section-title">TECHNOLOGIES UTILISÉES</h1>
-      <div class="section-content">
-        <div style="text-align: left; line-height: 2;">
-          <p style="margin-bottom: 0.8rem;"><strong>Langages :</strong> JAVA, PHP, DQL</p>
-          <p style="margin-bottom: 0.8rem;"><strong>Frameworks :</strong> Symfony, Bootstrap</p>
-          <p style="margin-bottom: 0.8rem;"><strong>Base de données :</strong> MySQL</p>
-          <p style="margin-bottom: 0.8rem;"><strong>Outils/Divers :</strong> Git, Docker, IntelliJ, PhpStorm, Composer, Doctrine</p>
-          <p style="margin-bottom: 0;"><strong>API :</strong></p>
-        </div>
-      </div>
+      <div class="tech-section">
+        <section class="tech-category">
+          <h3 class="tech-category-title">Langages</h3>
+          <div class="tech-grid">
+            <article class="tech-card">
+              <img src="./Images/java.png" alt="Logo Java" />
+            </article>
+            <article class="tech-card">
+              <img src="./Images/php.png" alt="Logo PHP" />
+            </article>
+          </div>
+        </section>
 
-      <h1 class="section-title">DIFFÉRENTES VERSIONS</h1>
-      <div class="section-content">
-        <h3 style="color: var(--section-accent); margin-bottom: 1rem; font-size: 1.5rem;">Première version du projet (Java)</h3>
-        <p>
-          Cette première version du projet avait pour objectif de mettre en place une gestion globale de l'application 
-          à destination d'un gestionnaire. Elle permettait la création, la modification et la consultation des principales 
-          entités du système, à savoir les entrepreneurs et leurs catégories, les propriétaires, les biens, ainsi que 
-          les prestations et leurs catégories. Cette version constituait la base fonctionnelle de l'application et posait 
-          les fondations de la logique métier.
-        </p>
-      </div>
+        <section class="tech-category">
+          <h3 class="tech-category-title">Frameworks</h3>
+          <div class="tech-grid">
+            <article class="tech-card">
+              <img src="./Images/symfony.png" alt="Logo Symfony" />
+            </article>
+            <article class="tech-card">
+              <img src="./Images/hibernate.png" alt="Logo Hibernate" />
+            </article>
+          </div>
+        </section>
 
-      <div class="section-content">
-        <h3 style="color: var(--section-accent); margin-bottom: 1rem; font-size: 1.5rem;">Deuxième version du projet (Java / Web Mobile)</h3>
-        <p>
-          Cette deuxième version du projet a introduit la création et la gestion des chantiers à la suite d'une inspection 
-          sur site. Côté gestionnaire, l'application Java permettait de créer un dossier chantier, d'établir un devis 
-          préliminaire à partir des prestations nécessaires, d'assigner un inspecteur et de consulter les rapports 
-          d'inspection (documents et photos) avant validation. Côté inspecteur, une interface web mobile offrait la 
-          consultation des chantiers assignés, la localisation du bien via une carte, la saisie d'observations à l'aide 
-          de formulaires adaptatifs, ainsi que l'ajout de photos et de documents réglementaires.
-        </p>
-      </div>
+        <section class="tech-category">
+          <h3 class="tech-category-title">Base de données</h3>
+          <div class="tech-grid">
+            <article class="tech-card">
+              <img src="./Images/sql.png" alt="Logo MySQL" />
+            </article>
+          </div>
+        </section>
 
-      <div class="section-content">
-        <h3 style="color: var(--section-accent); margin-bottom: 1rem; font-size: 1.5rem;">Troisième version du projet (Java)</h3>
-        <p>
-          Cette troisième version du projet portait sur la sollicitation automatisée des entrepreneurs à l'issue de la 
-          validation du chantier par le propriétaire. Elle permettait au gestionnaire de sélectionner des entrepreneurs 
-          qualifiés en fonction de critères géographiques et de leur proposer le chantier accompagné du devis type. 
-          Cette fonctionnalité s'appuyait sur l'intégration d'algorithmes de calcul de distances, afin de cibler les 
-          professionnels situés dans un rayon géographique défini, optimisant ainsi la mise en relation entre les acteurs 
-          du projet.
-        </p>
-      </div>
+        <section class="tech-category">
+          <h3 class="tech-category-title">Outils divers</h3>
+          <div class="tech-grid">
+            <article class="tech-card">
+              <img src="./Images/git.png" alt="Logo GitHub" />
+            </article>
+            <article class="tech-card">
+              <img src="./Images/composer.png" alt="Logo Composer" />
+            </article>
+            <article class="tech-card">
+              <img src="./Images/doctrine.png" alt="Logo Doctrine" />
+            </article>
+          </div>
+        </section>
 
-      <div class="section-content">
-        <h3 style="color: var(--section-accent); margin-bottom: 1rem; font-size: 1.5rem;">Quatrième version du projet (Web – Symfony)</h3>
-        <p>
-          Cette quatrième version du projet a introduit un espace entrepreneur dédié, développé sous forme d'interface 
-          web avec le framework Symfony. Elle permettait aux entrepreneurs de consulter les demandes de chantiers, 
-          d'accéder au détail des devis types et de soumettre leurs propositions via des formulaires sécurisés et validés 
-          côté serveur. Un tableau de bord personnalisé offrait également un suivi du statut des propositions soumises, 
-          permettant à chaque entrepreneur d'accepter ou de refuser les chantiers proposés.
-        </p>
-      </div>
-
-      <div class="section-content">
-        <h3 style="color: var(--section-accent); margin-bottom: 1rem; font-size: 1.5rem;">Cinquième version du projet (Java)</h3>
-        <p>
-          Cette cinquième version du projet a introduit un outil de comparaison des devis destiné à accompagner le 
-          gestionnaire dans la prise de décision. Elle permettait d'analyser et de comparer les propositions des 
-          entrepreneurs à l'aide d'une interface graphique enrichie, intégrant un jeu de couleurs pour améliorer la 
-          lisibilité. La comparaison reposait sur des algorithmes multi-critères pondérés, prenant en compte la date 
-          de début des travaux ainsi que le coût total du devis, afin d'identifier la proposition la plus adaptée.
-        </p>
+        <section class="tech-category">
+          <h3 class="tech-category-title">API</h3>
+          <div class="tech-grid">
+            <article class="tech-card">
+              <img src="./Images/nmap.png" alt="Logo Nmap" />
+            </article>
+          </div>
+        </section>
       </div>
 
       <h1 class="section-title">DIFFICULTÉS RENCONTRÉES</h1>
@@ -453,24 +610,72 @@
             et assurer un suivi clair des versions du projet. Il a fallu veiller à la cohérence du code et à la compréhension 
             de l'historique des modifications.
           </p>
-
+          <h3 style="color: var(--section-accent); margin-bottom: 0.5rem; font-size: 1.3rem;">Architecture des frameworks</h3>
+          <p style="margin-bottom: 0;">
+            Le projet a été développé par versions successives, ce qui demandait une bonne anticipation afin d'éviter 
+            les régressions lors de l'ajout de nouvelles fonctionnalités.
+          </p>
+          <br>
+             <h3 style="color: var(--section-accent); margin-bottom: 0.5rem; font-size: 1.3rem;">Conception et structuration de la base de données</h3>
+          <p style="margin-bottom: 1.5rem;">
+            La modélisation des données a représenté un enjeu important afin de garantir la cohérence des données
+            et d'assurer de bonnes performances lors des requêtes.
+          </p>
           <h3 style="color: var(--section-accent); margin-bottom: 0.5rem; font-size: 1.3rem;">Gestion des rôles et des droits utilisateurs</h3>
           <p style="margin-bottom: 1.5rem;">
             La mise en place de profils distincts (gestionnaire, inspecteur, entrepreneur, propriétaire) a impliqué une 
             réflexion approfondie sur les autorisations et les accès aux fonctionnalités selon chaque rôle.
           </p>
 
-          <h3 style="color: var(--section-accent); margin-bottom: 0.5rem; font-size: 1.3rem;">Conception et structuration de la base de données</h3>
-          <p style="margin-bottom: 1.5rem;">
-            La modélisation des données a représenté un enjeu important afin de garantir la cohérence entre les entités 
-            et d'assurer de bonnes performances lors des requêtes.
-          </p>
+       
 
-          <h3 style="color: var(--section-accent); margin-bottom: 0.5rem; font-size: 1.3rem;">Organisation et évolution progressive des fonctionnalités</h3>
-          <p style="margin-bottom: 0;">
-            Le projet a été développé par versions successives, ce qui demandait une bonne anticipation afin d'éviter 
-            les régressions lors de l'ajout de nouvelles fonctionnalités.
-          </p>
+         
+        </div>
+      </div>
+
+      <h1 class="section-title">GALERIE</h1>
+
+      <div class="gallery-section">
+        <div class="gallery-group">
+          <div class="gallery-header">
+            <h3 class="gallery-subtitle">Galerie JAVA</h3>
+            <p class="gallery-description">
+              Cette partie regroupe l'interface de gestion historique du projet : administration,
+              utilisateurs, biens, chantiers, cat&eacute;gories et prestations.
+            </p>
+          </div>
+          <div class="gallery-container">
+            <div class="gallery-image-wrapper">
+              <img id="gallery-java-image" class="gallery-image" src="" alt="Capture de l'application Java">
+            </div>
+            <div class="gallery-controls">
+              <button id="gallery-java-prev" class="gallery-btn">← Précédent</button>
+              <span id="gallery-java-counter" class="gallery-counter">1 / 1</span>
+              <button id="gallery-java-next" class="gallery-btn">Suivant →</button>
+            </div>
+            <p id="gallery-java-caption" class="gallery-caption"></p>
+          </div>
+        </div>
+
+        <div class="gallery-group">
+          <div class="gallery-header">
+            <h3 class="gallery-subtitle">Galerie WEB</h3>
+            <p class="gallery-description">
+              Cette partie met en avant l'interface web/mobile ajout&eacute;e pour le suivi terrain :
+              connexion, consultation des chantiers et acc&egrave;s aux documents du dossier.
+            </p>
+          </div>
+          <div class="gallery-container">
+            <div class="gallery-image-wrapper">
+              <img id="gallery-web-image" class="gallery-image" src="" alt="Capture de l'application Web">
+            </div>
+            <div class="gallery-controls">
+              <button id="gallery-web-prev" class="gallery-btn">← Précédent</button>
+              <span id="gallery-web-counter" class="gallery-counter">1 / 1</span>
+              <button id="gallery-web-next" class="gallery-btn">Suivant →</button>
+            </div>
+            <p id="gallery-web-caption" class="gallery-caption"></p>
+          </div>
         </div>
       </div>
 
@@ -488,67 +693,95 @@
           techniques et de mieux me préparer aux exigences du monde professionnel.
         </p>
       </div>
+
+      <div class="next-step-wrap">
+        <a class="next-step-btn" href="/PORTFOLIO-E5/#bts">
+          Retour à l'accueil
+        </a>
+      </div>
     </section>
   </div>
 
   <script>
-    // Images du projet ImmoSync
-    const images = [
-      'Images/gestion-administration.png',
-      'Images/gestion-utilisateur-java.png',
-      'Images/creation-utilisateur.png',
-      'Images/modifier-utilisateur.png',
-
-      'Images/gestion-chantier.png',
-      'Images/creation-chantier-1.png',
-      'Images/creation-chantier-2.png',
-      'Images/creation-chantier-3.png',
-
-      'Images/gestion-bien.png',
-      'Images/creation-bien.png',
-      'Images/modifier-bien.png',
-
-      'Images/gestion-catégorie.png',
-      'Images/creation-categorie.png',
-      'Images/modifier-categorie.png',
-      
-      'Images/gestion-prestation.png',
-      'Images/creation-prestation.png',
-      'Images/modifier-prestation.png'
+    const javaImages = [
+      { src: 'Images/gestion-administration.png', caption: 'Administration - Vue d ensemble du pilotage' },
+      { src: 'Images/gestion-utilisateur-java.png', caption: 'Utilisateurs - Gestion des profils' },
+      { src: 'Images/creation-utilisateur.png', caption: 'Utilisateurs - Creation d un utilisateur' },
+      { src: 'Images/modifier-utilisateur.png', caption: 'Utilisateurs - Modification d un utilisateur' },
+      { src: 'Images/gestion-chantier.png', caption: 'Chantiers - Liste des dossiers' },
+      { src: 'Images/creation-chantier-1.png', caption: 'Chantiers - Creation du dossier, etape 1' },
+      { src: 'Images/creation-chantier-2.png', caption: 'Chantiers - Creation du dossier, etape 2' },
+      { src: 'Images/creation-chantier-3.png', caption: 'Chantiers - Creation du dossier, etape 3' },
+      { src: 'Images/gestion-bien.png', caption: 'Biens - Gestion des proprietes' },
+      { src: 'Images/creation-bien.png', caption: 'Biens - Creation d un bien' },
+      { src: 'Images/modifier-bien.png', caption: 'Biens - Modification d un bien' },
+      { src: 'Images/gestion-catégorie.png', caption: 'Categories - Vue globale' },
+      { src: 'Images/creation-categorie.png', caption: 'Categories - Creation d une categorie' },
+      { src: 'Images/modifier-categorie.png', caption: 'Categories - Modification d une categorie' },
+      { src: 'Images/gestion-prestation.png', caption: 'Prestations - Gestion des services' },
+      { src: 'Images/creation-prestation.png', caption: 'Prestations - Creation d une prestation' },
+      { src: 'Images/modifier-prestation.png', caption: 'Prestations - Modification d une prestation' }
     ];
 
-    let currentIndex = 0;
+    const webImages = [
+      { src: 'Images/login-web.png', caption: 'Connexion - Acces a l interface web/mobile' },
+      { src: 'Images/all-chantier-web.png', caption: 'Chantiers - Vue d ensemble des chantiers assignes' },
+      { src: 'Images/chantier-web.png', caption: 'Chantier - Detail et suivi d un dossier' },
+      { src: 'Images/document-chantier.png', caption: 'Documents - Consultation des elements du chantier' }
+    ];
 
-    const galleryImage = document.getElementById('gallery-image');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    const counter = document.getElementById('counter');
+    function createGallery({ images, imageId, prevId, nextId, counterId, captionId }) {
+      let currentIndex = 0;
+      const image = document.getElementById(imageId);
+      const prevBtn = document.getElementById(prevId);
+      const nextBtn = document.getElementById(nextId);
+      const counter = document.getElementById(counterId);
+      const caption = document.getElementById(captionId);
 
-    function updateGallery() {
-      galleryImage.src = images[currentIndex];
-      counter.textContent = `${currentIndex + 1} / ${images.length}`;
-      
-      // Désactiver les boutons aux extrémités
-      prevBtn.disabled = currentIndex === 0;
-      nextBtn.disabled = currentIndex === images.length - 1;
+      function updateGallery() {
+        const currentImage = images[currentIndex];
+        image.src = currentImage.src;
+        image.alt = currentImage.caption;
+        counter.textContent = `${currentIndex + 1} / ${images.length}`;
+        caption.textContent = currentImage.caption;
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === images.length - 1;
+      }
+
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateGallery();
+        }
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          updateGallery();
+        }
+      });
+
+      updateGallery();
     }
 
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateGallery();
-      }
+    createGallery({
+      images: javaImages,
+      imageId: 'gallery-java-image',
+      prevId: 'gallery-java-prev',
+      nextId: 'gallery-java-next',
+      counterId: 'gallery-java-counter',
+      captionId: 'gallery-java-caption'
     });
 
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < images.length - 1) {
-        currentIndex++;
-        updateGallery();
-      }
+    createGallery({
+      images: webImages,
+      imageId: 'gallery-web-image',
+      prevId: 'gallery-web-prev',
+      nextId: 'gallery-web-next',
+      counterId: 'gallery-web-counter',
+      captionId: 'gallery-web-caption'
     });
-
-    // Initialiser la galerie
-    updateGallery();
   </script>
 
   <!-- Navbar JS -->
